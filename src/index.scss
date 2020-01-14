@@ -1,0 +1,96 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+  background-image: url("annie-spratt-0ZPSX_mQ3xI-unsplash.jpg");
+  background-size: cover;
+  height: -webkit-fill-available;
+  width: 100%;
+  display: flex;
+  column-fill: auto;
+}
+#root {
+  align-items: stretch ;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 26.1% 18% 27% 22% 13.1%;
+}
+
+.question-container{
+  grid-column-start: 2;
+   grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 3; 
+  display: grid;
+}
+/* .question{
+  background-color: blue;
+  grid-column-start: 2;
+  grid-column-end: 3;
+ grid-row-start: 3;
+ grid-row-end: 2; 
+} */
+
+.question-controllers{
+  background-color: yellow;
+  height: 35px;
+}
+
+@keyframes rollUp {
+
+  0%{
+    opacity : 1;
+    top : 0;
+  }
+  50%{
+    opacity : .2;
+
+  }
+  100%{
+    opacity : 0;
+    top : -289px;
+  } 
+
+}
+
+@keyframes rollUp2{
+  
+  0%{
+    opacity : 0;
+    top : 140px;
+  }
+  50%{
+    opacity : .1;
+
+  }
+  100%{
+    opacity : 1;
+    top : -90px;
+  } 
+}
+
+.current-question-animate{
+  position: relative;
+  animation: rollUp 4s ease forwards 1;
+}
+.current-question-noanimate{
+  position:relative;
+}
+.next-question{
+  position:relative;
+  animation: rollUp2 4s ease 3s forwards 1;
+}
+.next-question-noanimate{
+  position:relative;
+  display: hidden;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
