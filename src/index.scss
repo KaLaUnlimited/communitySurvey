@@ -22,6 +22,10 @@ body {
   grid-template-rows: 26.1% 18% 27% 22% 13.1%;
 }
 
+#welcome{
+  width:328px;
+  height:328px;
+}
 .question-container{
   grid-column-start: 2;
    grid-column-end: 3;
@@ -37,10 +41,17 @@ body {
  grid-row-end: 2; 
 } */
 
+
+
 .question-controllers{
   background-color: yellow;
   height: 35px;
 }
+
+.question-animation-container{
+
+}
+
 
 @keyframes rollUp {
 
@@ -71,24 +82,27 @@ body {
   }
   100%{
     opacity : 1;
-    top : -90px;
+    top : -71px;
+    // top : -90px;
   } 
 }
 
 .current-question-animate{
   position: relative;
-  animation: rollUp 4s ease forwards 1;
+  animation: rollUp 1s ease forwards 1;
 }
 .current-question-noanimate{
   position:relative;
 }
-.next-question{
+.next-question-animate{
   position:relative;
-  animation: rollUp2 4s ease 3s forwards 1;
+  opacity:0;
+  animation: rollUp2 1s ease-in .7s forwards 1;
 }
 .next-question-noanimate{
   position:relative;
-  display: hidden;
+  top:71px;
+  display: none;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
