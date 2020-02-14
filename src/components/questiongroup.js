@@ -1,10 +1,10 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 
-function Question(props) {
+function QuestionGroup(props) {
   return (
-    <div id={props.id} className={[props.class]}>
-    {props.question}
+    <div className="question-animation-container" >
+    {props.questionGroup}
       <br />
       <Button
         onClick={props.handleNextQuestion}
@@ -17,4 +17,4 @@ function Question(props) {
   );
 }
 
-export default Question;
+export default QuestionGroup;
