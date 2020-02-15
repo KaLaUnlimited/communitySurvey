@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 function Arrows(props) {
   return (
     <div className="question-controllers">
-      Developer
+      Developed by <strong>Kavodel Lasode </strong>
       <Button
         variant="contained"
         color="primary"
@@ -12,7 +12,7 @@ function Arrows(props) {
         onClick={props.previousQuestion}
         
       >
-        up
+      <i class="fas fa-chevron-up"></i>
       </Button>
       <Button
         variant="contained"
@@ -20,7 +20,7 @@ function Arrows(props) {
         // onClick={props.handleNextQuestion}
         onClick={props.nextQuestion}
       >
-        down
+       <i class="fas fa-chevron-down"></i>
       </Button>{" "}
     </div>
   );

@@ -7,7 +7,7 @@ function QuestionGroup(props) {
     {props.questionGroup}
       <br />
       <Button
-        onClick={props.handleNextQuestion}
+        onClick={props.nextQuestion}
         variant="contained"
         color="primary"
       >

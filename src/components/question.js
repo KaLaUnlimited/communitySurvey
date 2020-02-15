@@ -7,7 +7,7 @@ function Question(props) {
     {props.question}
       <br />
       <Button
-        onClick={props.handleNextQuestion}
+        onClick={props.nextQuestion}
         variant="contained"
         color="primary"
       >
