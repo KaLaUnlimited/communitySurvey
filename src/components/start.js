@@ -16,7 +16,7 @@ function Start(props) {
       >
         Start
       </Button>
-      <div id='press-enter'>press<span> Enter <i class="fas fa-level-down-alt fa-rotate-90 fa-xs"></i></span> </div>
+      <div id='press-enter'>press<span> &nbsp; Enter <i class="fas fa-level-down-alt fa-rotate-90 fa-xs"></i></span> </div>
      
       </div>
     </div>

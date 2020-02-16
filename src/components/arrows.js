@@ -4,24 +4,15 @@ import Button from "@material-ui/core/Button";
 function Arrows(props) {
   return (
     <div className="question-controllers">
-      Developed by <strong>Kavodel Lasode </strong>
-      <Button
-        variant="contained"
-        color="primary"
-        // onClick={props.handlePreviousQuestion}
-        onClick={props.previousQuestion}
+      <div>
+        Developed by <strong>Kavodel Lasode </strong>
+      </div>
+      <div id="arrows-container">
+        <i id='up' onClick={props.previousQuestion} class="fas fa-chevron-up fa-md"></i> 
         
-      >
-      <i class="fas fa-chevron-up"></i>
-      </Button>
-      <Button
-        variant="contained"
-        color="primary"
-        // onClick={props.handleNextQuestion}
-        onClick={props.nextQuestion}
-      >
-       <i class="fas fa-chevron-down"></i>
-      </Button>{" "}
+<i onClick={props.nextQuestion} class="fas fa-chevron-down fa-md"></i>
+        
+      </div>
     </div>
   );
 }
