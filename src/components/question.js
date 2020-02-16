@@ -3,7 +3,8 @@ import Button from "@material-ui/core/Button";
 
 function Question(props) {
   return (
-    <div id={props.id} className={[props.class]}>
+    // <div id={props.id} className={[props.class]}>
+       <div id={props.id} className='question'>
     {props.question}
       <br />
       <Button
