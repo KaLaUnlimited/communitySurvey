@@ -4,11 +4,9 @@ import surveyQuestions from "./surveyQuestions";
 import questionsArray from "./surveyQuestions";
 import Button from "@material-ui/core/Button";
 import Start from "./components/start";
-import Fade from "react-reveal/Fade";
-import makeCarousel from "react-reveal/makeCarousel";
-import Slide from "react-reveal/Slide";
 import Arrow from "./components/arrows";
 import QuestionGroup from "./components/questiongroup";
+import ProgressBar from './components/progressBar';
 
 class App extends React.Component {
   constructor(props) {
@@ -68,8 +66,15 @@ class App extends React.Component {
     });
   };
 
+  handleCompletion = () =>{
+    const answer = Math.floor(( this.state.currentQuestion /3) * 100);
+
+  return answer
+  }
+
   render() {
-    const f = questionsArray.map(x => {
+    const completion = this.handleCompletion();
+    const returnQuestions = questionsArray.map(x => {
       // console.log(x.key,">>>", x.props.class)
       // console.log("no zero?",this.state.currentQuestion, x.key)
       if (this.state.increment) {
@@ -128,7 +133,9 @@ class App extends React.Component {
           <Start handleStartSurvey={this.handleStartSurvey} />
         ) : (
           <>
-            <div className="question-container">{f}</div>
+            <div className="question-container">{returnQuestions}</div>
+           { React.cloneElement(<ProgressBar/>, {completion:completion} )}
+            {/* <ProgressBar completion={completion}/> */}
             <Arrow
               previousQuestion={this.handlePreviousQuestion}
               nextQuestion={this.handleNextQuestion}
