@@ -1,0 +1,29 @@
+#progress-container {
+    background-color: rgba(195, 198, 188, 0.6);
+    opacity: 1;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    width: 25%;
+    height: 40%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    border: 0px solid transparent;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 73%;
+  }
+  #progress-bar {
+    background-color: rgb(160, 163, 154);
+    border: 0px solid transparent;
+    border-radius: 25px;
+    height: 10%;
+    width: 90%;
+    opacity: 1;
+    position: relative;
+  }
+  #trans{
+    transition:width .4s ease 0s;
+  }

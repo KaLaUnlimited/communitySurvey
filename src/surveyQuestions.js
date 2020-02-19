@@ -1,5 +1,5 @@
 import React from "react";
-import Question from "./components/question";
+import Question from "./components/Question/question";
 // module.exports = [
 //   "Have you ever thought about investing in a business in your area?",
 //   "... what about opening your own business close by?",
@@ -29,18 +29,18 @@ import Question from "./components/question";
 const questionsArray = [
   <Question
     key={0}
-    class='question-entry'
+    // class='question-entry'
     question="Question 0"
   />,
   <Question
     key={1}
-    class="question-hidden"
+    // class="question-hidden"
     question="Question 1"
   />,
 
   <Question
     key={2}
-    class="question-hidden"
+    // class="question-display"
     question="Question 2"
   />
 ];

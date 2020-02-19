@@ -1,4 +1,5 @@
 import React from "react";
+import './question.scss';
 function Question(props) {
   return (
     <div id={props.id} className={[props.class]}>

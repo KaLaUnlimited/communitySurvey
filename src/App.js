@@ -1,12 +1,12 @@
 import React from "react";
-import Question from "./components/question";
+import Question from "./components/Question/question";
 import surveyQuestions from "./surveyQuestions";
 import questionsArray from "./surveyQuestions";
 import Button from "@material-ui/core/Button";
 import Start from "./components/start";
-import Arrow from "./components/arrows";
+import Arrow from "./components/Arrow/arrows";
 import QuestionGroup from "./components/questiongroup";
-import ProgressBar from './components/progressBar';
+import ProgressBar from './components/ProgressBar/progressBar';
 
 class App extends React.Component {
   constructor(props) {
@@ -135,7 +135,6 @@ class App extends React.Component {
           <>
             <div className="question-container">{returnQuestions}</div>
            { React.cloneElement(<ProgressBar/>, {completion:completion} )}
-            {/* <ProgressBar completion={completion}/> */}
             <Arrow
               previousQuestion={this.handlePreviousQuestion}
               nextQuestion={this.handleNextQuestion}

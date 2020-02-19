@@ -1,4 +1,5 @@
 import React from "react";
+import './arrow.scss'
 
 function Arrows(props) {
   return (
@@ -13,7 +14,11 @@ function Arrows(props) {
           class="fas fa-chevron-up fa-md"
         ></i>
 
-        <i onClick={props.nextQuestion} class="fas fa-chevron-down fa-md"></i>
+        <i
+          id="down"
+          onClick={props.nextQuestion}
+          class="fas fa-chevron-down fa-md"
+        ></i>
       </div>
     </div>
   );
