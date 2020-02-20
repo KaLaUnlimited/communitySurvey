@@ -11,13 +11,13 @@ function Arrows(props) {
         <i
           id="up"
           onClick={props.previousQuestion}
-          class="fas fa-chevron-up fa-md"
+          className="fas fa-chevron-up fa-md"
         ></i>
 
         <i
           id="down"
           onClick={props.nextQuestion}
-          class="fas fa-chevron-down fa-md"
+          className="fas fa-chevron-down fa-md"
         ></i>
       </div>
     </div>

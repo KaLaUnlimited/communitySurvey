@@ -17,20 +17,21 @@
   @keyframes rollUp2 {
     0% {
       opacity: 0;
-      top: 140px;
-      transform: scale(0.5, 0.5);
+      top: 190px;
+    //   transform: scale(0.5, 0.5);
     }
     50% {
       opacity: 0.1;
     }
     100% {
       opacity: 1;
-      top: -71px;
+      top: 0px;
       transition-timing-function: cubic-bezier(0.51, 0.03, 0.95, 1.02);
   
       // top : -90px;
     }
   }
+
   
   .question {
     display: flex;
@@ -50,15 +51,73 @@
     grid-row-start:1;
     grid-row-end:2;
     opacity: 0;
-    animation: rollUp2 0.3s ease-in 0.7s forwards running 1;
+    animation: rollUp2 0.6s ease 0.7s forwards running 1;
   }
   .question-hidden {
-    position: relative;
-      top:0;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start:1;
+    grid-row-end:2;
+      background-color: red;
+    // position: relative;
+    //   top:0;
     display: none;
+    animation: rollUp2 0.3s ease-in 0.7s forwards running 1;
   }
-  .next-question-noanimate {
+  
+
+  @keyframes rollDown{
+    0% {
+        opacity: 0;
+        top: -289px;
+      //   transform: scale(0.5, 0.5);
+      }
+      50% {
+        opacity: 0.1;
+      }
+      100% {
+        opacity: 1;
+        top: 0px;
+        transition-timing-function: cubic-bezier(0.51, 0.03, 0.95, 1.02);
+    
+        // top : -90px;
+      }
+
+  }
+
+  @keyframes rollDown2{
+    0% {
+        opacity: 1;
+        top: 0px;
+      //   transform: scale(0.5, 0.5);
+      }
+      50% {
+        opacity: 0.1;
+      }
+      100% {
+        opacity: 0;
+        top: 190px;
+        transition-timing-function: cubic-bezier(0.51, 0.03, 0.95, 1.02);
+    
+        // top : -90px;
+      }
+
+  }
+
+  .reverse-question-exit {
     position: relative;
-    top: 71px;
-    display: none;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start:1;
+    grid-row-end:2;
+    animation: rollDown2 0.6s ease forwards running 1;
+  }
+  .reverse-question-entry {
+    position: relative;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start:1;
+    grid-row-end:2;
+    opacity: 0;
+    animation: rollDown 0.6s ease 0.7s forwards running 1;
   }

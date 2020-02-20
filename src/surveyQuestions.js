@@ -29,18 +29,18 @@ import Question from "./components/Question/question";
 const questionsArray = [
   <Question
     key={0}
-    // class='question-entry'
+    class='question-entry'
     question="Question 0"
   />,
   <Question
     key={1}
-    // class="question-hidden"
+    class="question-hidden"
     question="Question 1"
   />,
 
   <Question
     key={2}
-    // class="question-display"
+    class="question-hidden"
     question="Question 2"
   />
 ];

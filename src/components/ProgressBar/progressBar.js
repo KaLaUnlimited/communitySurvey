@@ -6,7 +6,7 @@ function ProgressBar(props) {
         'content': "",
         'width': '100%',
         'height': '90%',
-        'background-color':' #83867F',
+        'backgroundColor':' #83867F',
         'position': 'absolute',
         'transtion':'width .2s ease 10s'
 
