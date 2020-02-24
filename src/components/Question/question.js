@@ -1,8 +1,10 @@
 import React from "react";
 import './question.scss';
+
 function Question(props) {
+  console.log(props)
   return (
-    <div id={props.id} className={[props.class]}>
+    <div onAnimationStart={props.onAnimationStart? props.onAnimationStart:null } id={props.id} className={[props.class]}>
       {/* //  <div id={props.id} className='question'> */}
     {props.question}
       <br />
