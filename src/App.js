@@ -14,8 +14,9 @@ class App extends React.Component {
       increment: 0,
       currentQuestion: 0,
       startPage: true,
-      showGroup:false,
+      showGroup: false,
       rolldownClass: false,
+      header: " ",
       currentNoAnimation: "current-question-noanimate",
       currentAnimation: "current-question-animate",
       nextAnimation: "next-question-animate",
@@ -31,7 +32,7 @@ class App extends React.Component {
         {
           increment: true,
           currentQuestion: this.state.currentQuestion + 1,
-          rolldownClass: true,
+          rolldownClass: true
         },
         this.handleReset
       );
@@ -40,18 +41,15 @@ class App extends React.Component {
   handleReset = () => {
     this.setState({
       rolldownClass: false
-   
     });
   };
 
   handlePreviousQuestion = () => {
     if (this.state.currentQuestion > 0) {
-      this.setState(
-        {
-          increment: false,
-          currentQuestion: this.state.currentQuestion - 1
-        }
-      );
+      this.setState({
+        increment: false,
+        currentQuestion: this.state.currentQuestion - 1
+      });
     }
   };
 
@@ -62,118 +60,117 @@ class App extends React.Component {
     });
   };
 
-  handleHeader = () => {
-    console.log("handleHeader")
+  handleHeader = header => {
+    console.log("handleHeader", header);
     this.setState({
-            showGroup:true
-    }
-
-    )
-  }
+      showGroup: true,
+      header: header
+    });
+  };
 
   handleCompletion = () => {
     const answer = Math.floor((this.state.currentQuestion / 3) * 100);
 
     return answer;
   };
- handleQuestion = () =>{
-   return  questionsArray.map(x => {
-    if (this.state.increment) {
-      console.log("increment")
-      if (this.state.currentQuestion > x.key) {
-      
-        x = React.cloneElement(x, { ...x, class: this.state.questionExit, 
-           nextQuestion: this.handleNextQuestion,
-           onAnimationStart:this.handleHeader });
-        console.log(x.key, "Previous Question", x.props);
-        
-        return x;
-      }
-      if (this.state.currentQuestion == x.key) {
-    
-        x = React.cloneElement(x, {
-          ...x,
-          class: this.state.questionEntry,
-          nextQuestion: this.handleNextQuestion,
-          // onAnimationStart: {}
-        
-        });
-     
-          console.log("header?", x.id)
-          if(x.props.id=='header-trigger')
-          {
+  handleQuestion = () => {
+    return questionsArray.map(x => {
+      if (this.state.increment) {
+        console.log("increment");
+        if (this.state.currentQuestion > x.key) {
+          x = React.cloneElement(x, {
+            ...x,
+            class: this.state.questionExit,
+            nextQuestion: this.handleNextQuestion,
+            onAnimationStart: () => {
+              if (x.props.id == "header-trigger") {
+                console.log("87 question class>>>", x.props.class);
+                this.handleHeader(x.props.question);
+              }
+            }
+          });
+          console.log(x.key, "Previous Question", x.props.question);
+
+          return x;
+        }
+        if (this.state.currentQuestion == x.key) {
+          x = React.cloneElement(x, {
+            ...x,
+            class: this.state.questionEntry,
+            nextQuestion: this.handleNextQuestion
+            // onAnimationStart: {}
+          });
+
+          console.log("header?", x.id);
+          if (x.props.id == "header-trigger") {
             // this.handleHeader()
             // this.setState({
             //   showGroup:true
             // })
-          }
-          else {
-            console.log(">>>> id:",typeof x.id )
+          } else {
+            console.log(">>>> id:", typeof x.id);
             // this.setState({
             //   showGroup:false
             // })
           }
-        console.log(x.key, "Current Question>>>", x.props.id);
-        return x;
-      }
-      if (this.state.currentQuestion < x.key) {
-        x = React.cloneElement(x, { ...x, class: this.state.questionEntry, 
-           nextQuestion: this.handleNextQuestion,
-        });
-        // x.class=this.state.questionHidden
-        // return x
-        // console.log(x.key, "Hidden Question", x.props.class);
-      }
-    } 
-    else {
-      console.log("decrement>>>", this.state.currentQuestion);
-      if (this.state.currentQuestion < x.key) {
-        x = React.cloneElement(x, { ...x, class: 'reverse-question-exit'});
-        // console.log(">>>>double class?",x.props)
-        // console.log(x.key, "Previous Question", x.props.class,"cuurent qu", this.state.currentQuestion);
-        return x;
-      }
-      else if (this.state.currentQuestion == x.key) {
-        // console.log(x.key, "Current Question", x.props.class);
-        x = React.cloneElement(x, { ...x, class:'reverse-question-entry' });
+          console.log(x.key, "Current Question>>>", x.props.id);
+          return x;
+        }
+        if (this.state.currentQuestion < x.key) {
+          x = React.cloneElement(x, {
+            ...x,
+            class: this.state.questionEntry,
+            nextQuestion: this.handleNextQuestion
+          });
+          // x.class=this.state.questionHidden
+          // return x
+          // console.log(x.key, "Hidden Question", x.props.class);
+        }
+      } else {
+        console.log("decrement>>>", this.state.currentQuestion);
+        if (this.state.currentQuestion < x.key) {
+          x = React.cloneElement(x, { ...x, class: "reverse-question-exit" });
+          // console.log(">>>>double class?",x.props)
+          // console.log(x.key, "Previous Question", x.props.class,"cuurent qu", this.state.currentQuestion);
+          return x;
+        } else if (this.state.currentQuestion == x.key) {
+          // console.log(x.key, "Current Question", x.props.class);
+          x = React.cloneElement(x, { ...x, class: "reverse-question-entry" });
 
-        // console.log("x>>>??",x.props.class )
-        return x;
+          // console.log("x>>>??",x.props.class )
+          return x;
+        } else if (this.state.currentQuestion > x.key) {
+          // console.log(x.key, "Next Question", x.props.class);
+          x = React.cloneElement(x, {
+            ...x,
+            class: "reverse-question-exit",
+            nextQuestion: this.handleNextQuestion
+          });
+          // x.class=this.state.questionHidden
+          // return x
+        }
       }
-      else if (this.state.currentQuestion > x.key) {
-        // console.log(x.key, "Next Question", x.props.class);
-        x = React.cloneElement(x, {
-          ...x,
-          class: 'reverse-question-exit',
-          nextQuestion: this.handleNextQuestion
-        });
-        // x.class=this.state.questionHidden
-        // return x
-      }
-    }
-  });
- }
+    });
+  };
   render() {
     const completion = this.handleCompletion();
-    // const returnQuestions =this.handleQuestion(); 
-
+    // const returnQuestions =this.handleQuestion();
     return (
       <>
         {this.state.startPage === true ? (
           <Start handleStartSurvey={this.handleStartSurvey} />
         ) : (
           <>
-          <QuestionGroup currentNum={this.state.currentQuestion} show={this.state.showGroup}/>
-            <div className="question-container">{this.handleQuestion().map((x,key)=>{
-                if(x){
-                  // if(x.props.id=="header-trigger"&& (this.state.currentQuestion ==x.key)){
-                  //  onchange
-                  //  this.setState({show:true})
-                  // }
-                     
-                }
-           return x
-            })}</div>
+            <div className="question-container">
+              {this.handleQuestion().map((question, key) => {
+                return question;
+              })}
+            </div>
+            <QuestionGroup
+              header={this.state.header}
+              currentNum={this.state.currentQuestion}
+              show={this.state.showGroup}
+            />
             {React.cloneElement(<ProgressBar />, { completion: completion })}
             <Arrow
               previousQuestion={this.handlePreviousQuestion}

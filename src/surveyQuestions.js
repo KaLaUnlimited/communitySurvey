@@ -28,24 +28,13 @@ import Question from "./components/Question/question";
 
 const questionsArray = [
   <Question
-    id='header-trigger'
+    id="header-trigger"
     key={0}
-    class='question-entry, question-group'
-    question="Question 0"
+    className="question-entry question-group"
+    question="0.Have you ever thought about investing in a business in your area?"
   />,
-  <Question
-    id={1}
-    key={1}
-    class="question-hidden  question-group"
-    question="Question 1"
-  />,
+  <Question id={1} key={1} className="question-hidden" question="Question 1" />,
 
-  <Question
-    id={2}
-    key={2}
-    class="question-hidden"
-    question="Question 2"
-  />
+  <Question id={2} key={2} className="question-hidden" question="Question 2" />
 ];
 export default questionsArray;
-
