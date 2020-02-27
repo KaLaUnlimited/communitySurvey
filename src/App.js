@@ -27,7 +27,7 @@ class App extends React.Component {
     };
   }
   handleNextQuestion = cb => {
-    if (this.state.currentQuestion < 3 - 1) {
+    if (this.state.currentQuestion < questionsArray.length - 1) {
       this.setState(
         {
           increment: true,
@@ -78,13 +78,15 @@ class App extends React.Component {
       if (this.state.increment) {
         console.log("increment");
         if (this.state.currentQuestion > x.key) {
+          console.log("81>>>", x.props.className)
           x = React.cloneElement(x, {
             ...x,
-            class: this.state.questionExit,
+            class: `${ this.state.questionExit} `,
             nextQuestion: this.handleNextQuestion,
             onAnimationStart: () => {
-              if (x.props.id == "header-trigger") {
-                console.log("87 question class>>>", x.props.class);
+              console.log(x.props.id,x.props.class,"match?>>>", x.props.class.match(/question-group/ig))
+              if (x.props.className.match(/question-group/ig)) {
+                console.log("87 question class>>>", x.props.className);
                 this.handleHeader(x.props.question);
               }
             }

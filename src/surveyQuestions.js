@@ -28,13 +28,16 @@ import Question from "./components/Question/question";
 
 const questionsArray = [
   <Question
-    id="header-trigger"
+    id="header-trigger-1"
     key={0}
     className="question-entry question-group"
-    question="0.Have you ever thought about investing in a business in your area?"
+    question="1. Let's start by finding how involved you are within your community"
   />,
-  <Question id={1} key={1} className="question-hidden" question="Question 1" />,
+  <Question id={1} key={1} className="question-hidden" question="Question 1a" />,
 
-  <Question id={2} key={2} className="question-hidden" question="Question 2" />
+  <Question id={2} key={2} className="question-hidden" question="Question 1b" />,
+  <Question id="header-trigger-2" key={3} className="question-hidden" question="Question 1c" />,
+  <Question id={4} key={4} className="question-hidden  question-group" question="2.Nice! So let's hear your thoughts about your city... " />,
+  <Question id={5} key={5} className="question-hidden" question="2a" />
 ];
 export default questionsArray;
