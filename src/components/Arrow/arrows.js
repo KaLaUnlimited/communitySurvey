@@ -1,5 +1,7 @@
 import React from "react";
 import './arrow.scss'
+import PropTypes from 'prop-types';
+
 
 function Arrows(props) {
   return (
@@ -23,5 +25,8 @@ function Arrows(props) {
     </div>
   );
 }
+Arrows.propTypes = {
+  previousQuestion: PropTypes.func.isRequired
+};
 
 export default Arrows;

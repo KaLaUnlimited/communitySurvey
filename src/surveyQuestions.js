@@ -28,7 +28,7 @@ import Question from "./components/Question/question";
 
 const questionsArray = [
   <Question
-    id="header-trigger-1"
+    id={0}
     key={0}
     className="question-entry question-group"
     question="1. Let's start by finding how involved you are within your community"

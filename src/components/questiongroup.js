@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
+import PropTypes from 'prop-types';
 
 // const style = () ={
 //   return
@@ -25,4 +26,8 @@ function QuestionGroup(props) {
   );
 }
 
+QuestionGroup.propTypes = {
+  show: PropTypes.bool.isRequired,
+  header:PropTypes.string.isRequired
+};
 export default QuestionGroup;

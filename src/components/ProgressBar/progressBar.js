@@ -1,5 +1,7 @@
 import React from "react";
-import './progressBar.scss'
+import './progressBar.scss';
+import PropTypes from 'prop-types';
+
 
 function ProgressBar(props) {
     const style={
@@ -18,5 +20,9 @@ function ProgressBar(props) {
    </div>
   );
 }
+
+ProgressBar.propTypes = {
+    completion: PropTypes.string
+  };
 
 export default ProgressBar;

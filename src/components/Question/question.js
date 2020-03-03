@@ -1,5 +1,6 @@
 import React from "react";
 import './question.scss';
+import PropTypes from 'prop-types';
 
 function Question(props) {
   console.log(props)
@@ -16,5 +17,11 @@ function Question(props) {
     </div>
   );
 }
+
+Question.propTypes = {
+  onAnimationStart: PropTypes.func,
+  id: PropTypes.number,
+  class: PropTypes.func,
+};
 
 export default Question;

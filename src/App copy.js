@@ -6,27 +6,25 @@ import Arrow from "./components/Arrow/arrows";
 import QuestionGroup from "./components/questiongroup";
 import ProgressBar from "./components/ProgressBar/progressBar";
 import './App.css'
+export const questionContext = React.createContext();
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      date: new Date(),
-      increment: 0,
-      currentQuestion: 0,
-      startPage: true,
-      showGroup: false,
-      rolldownClass: false,
-      header: " ",
-      // currentNoAnimation: "current-question-noanimate",
-      // currentAnimation: "current-question-animate",
-      // nextAnimation: "next-question-animate",
-      // nextNoAnimation: "current-question-noanimate",
-      questionExit: "question-exit",
-      questionEntry: "question-entry",
-      questionHidden: "question-hidden"
-    };
-  }
+
+const initialState= {
+
+    date: new Date(),
+    increment: 0,
+    currentQuestion: 0,
+    startPage: true,
+    showGroup: false,
+    rolldownClass: false,
+    header: " ", 
+    questionExit: "question-exit",
+    questionEntry: "question-entry",
+    questionHidden: "question-hidden"
+  };
+const [state,dispatch] = React.useReducer(reducer, initialState);
+const App= () => {
+
   handleNextQuestion = cb => {
     if (this.state.currentQuestion < questionsArray.length - 1) {
       this.setState(
