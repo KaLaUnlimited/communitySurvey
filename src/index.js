@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
 // import App from './App';
-import App from "./AppCopyHooks";
+import App from "./App";
 import { GlobalProvider } from "./context/GlobalState";
 
 // import App from "./AppTroubleshoot";

@@ -103,97 +103,74 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
-  function handleQuestion() {
-    return questionsArray.map(x => {
-      if (this.state.increment) {
-        console.log("increment");
-        if (this.state.currentQuestion > Number(x.key)) {
-          console.log("81>>>", x.props.className);
-          x = React.cloneElement(x, {
-            ...x,
-            class: `${this.state.questionExit} `,
-            nextQuestion: this.handleNextQuestion,
+  const handleQuestion = () => {
+    return questionsArray.map(questionComponent => {
+      if (state.direction === "increment") {
+        // if forward transvering through the question lists
+        if (Number(questionComponent.key) < state.currentQuestion) {
+          //if current question  is leaving, then it is assigned css class questionEquestionComponentit
+          questionComponent = React.cloneElement(questionComponent, {
+            ...questionComponent,
+            class: `${state.questionExit} `,
+            nextQuestion: handleNextQuestion,
             onAnimationStart: () => {
-              console.log(
-                x.props.id,
-                x.props.class,
-                "match?>>>",
-                x.props.class.match(/question-group/gi)
-              );
-              if (x.props.className.match(/question-group/gi)) {
-                console.log("87 question class>>>", x.props.className);
-                this.handleHeader(x.props.question);
-              }
-            }
-          });
-          console.log(x.key, "Previous Question", x.props.question);
-
-          return x;
-        }
-        if (this.state.currentQuestion === Number(x.key)) {
-          x = React.cloneElement(x, {
-            ...x,
-            class: this.state.questionEntry,
-            nextQuestion: this.handleNextQuestion,
-            onAnimationStart: () => {
-              if (x.props.className.match(/question-group/gi)) {
-                console.log("120 question class>>>", x.props.className);
-                this.closeHandleHeader();
+              if (questionComponent.props.className.match(/question-group/gi)) {
+                handleHeader(questionComponent.props.question);
               }
             }
           });
 
-          console.log("header?", x.id);
-          if (x.props.id === "header-trigger") {
-            // this.handleHeader()
-            // this.setState({
-            //   showGroup:true
-            // })
-          } else {
-            console.log(">>>> id:", typeof x.id);
-            // this.setState({
-            //   showGroup:false
-            // })
-          }
-          console.log(x.key, "Current Question>>>", x.props.id);
-          return x;
+          return questionComponent;
         }
-        if (this.state.currentQuestion < Number(x.key)) {
-          x = React.cloneElement(x, {
-            ...x,
-            class: this.state.questionEntry,
-            nextQuestion: this.handleNextQuestion
+        if (Number(questionComponent.key) === state.currentQuestion) {
+          //if current question then it is assigned css class questionEntry
+          questionComponent = React.cloneElement(questionComponent, {
+            ...questionComponent,
+            class: state.questionEntry,
+            nextQuestion: handleNextQuestion,
+            onAnimationStart: () => {
+              if (questionComponent.props.className.match(/question-group/gi)) {
+                handleCloseHeader();
+              }
+            }
           });
-          // x.class=this.state.questionHidden
-          // return x
-          // console.log(x.key, "Hidden Question", x.props.class);
+          return questionComponent;
         }
-      } else {
-        console.log("decrement>>>", this.state.currentQuestion);
-        if (this.state.currentQuestion < Number(x.key)) {
-          x = React.cloneElement(x, { ...x, class: "reverse-question-exit" });
-          // console.log(">>>>double class?",x.props)
-          // console.log(x.key, "Previous Question", x.props.class,"cuurent qu", this.state.currentQuestion);
-          return x;
-        } else if (this.state.currentQuestion === Number(x.key)) {
-          // console.log(x.key, "Current Question", x.props.class);
-          x = React.cloneElement(x, { ...x, class: "reverse-question-entry" });
+        if (Number(questionComponent.key) > state.currentQuestion) {
+          //if question is before currentQuestion then it is assigned css class questionEntry
+          questionComponent = React.cloneElement(questionComponent, {
+            ...questionComponent,
+            class: state.questionHidden,
+            nextQuestion: handleNextQuestion
+          });
+          return questionComponent;
+        }
+      }
 
-          // console.log("x>>>??",x.props.class )
-          return x;
-        } else if (this.state.currentQuestion > Number(x.key)) {
-          // console.log(x.key, "Next Question", x.props.class);
-          x = React.cloneElement(x, {
-            ...x,
+      if (state.direction === "decrement") {
+        // if backward transvering through the question lists
+        if (Number(questionComponent.key) > state.currentQuestion) {
+          questionComponent = React.cloneElement(questionComponent, {
+            ...questionComponent,
+            class: "reverse-question-exit"
+          });
+          return questionComponent;
+        } else if (state.currentQuestion === Number(questionComponent.key)) {
+          questionComponent = React.cloneElement(questionComponent, {
+            ...questionComponent,
+            class: "reverse-question-entry"
+          });
+          return questionComponent;
+        } else if (Number(questionComponent.key) < state.currentQuestion) {
+          questionComponent = React.cloneElement(questionComponent, {
+            ...questionComponent,
             class: "reverse-question-exit",
-            nextQuestion: this.handleNextQuestion
+            nextQuestion: handleNextQuestion
           });
-          // x.class=this.state.questionHidden
-          // return x
         }
       }
     });
-  }
+  };
   return (
     <GlobalContext.Provider
       value={{

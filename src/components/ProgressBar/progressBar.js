@@ -4,13 +4,12 @@ import "./progressBar.scss";
 // import PropTypes from "prop-types";
 
 function ProgressBar(props) {
-  const { completion, handleCompletion } = useContext(GlobalContext);
+  const { completion, handleCompletion, currentQuestion, questionsLength } = useContext(GlobalContext);
 
   useEffect(() => {
-    // handleCompletion();
-  }, [completion, handleCompletion]);
+    handleCompletion(currentQuestion, questionsLength);
+  }, [currentQuestion]);
 
-  console.log(completion, " 8 >>>>.");
   const style = {
     content: "",
     width: "100%",

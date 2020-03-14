@@ -4,17 +4,16 @@ import "./question.scss";
 import { GlobalContext } from "../../context/GlobalState";
 
 function Question(props) {
-  const { nextQuestion } = useContext(GlobalContext);
+  const { handleNextQuestion } = useContext(GlobalContext);
   return (
     <div
       onAnimationStart={props.onAnimationStart ? props.onAnimationStart : null}
       id={props.id}
       className={[props.class]}
     >
-      {/* //  <div id={props.id} className='question'> */}
       {props.question}
       <br />
-      <button onClick={nextQuestion}>Continue</button>
+      <button onClick={handleNextQuestion}>Continue</button>
     </div>
   );
 }
