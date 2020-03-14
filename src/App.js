@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "./context/GlobalState";
 import Start from "./components/start";
 import Arrow from "./components/Arrow/arrows";
-import QuestionGroup from "./components/questiongroup";
+import QuestionHeader from "./components/questionheader";
 import ProgressBar from "./components/ProgressBar/progressBar";
 
 import "./App.css";
@@ -25,7 +25,7 @@ function App() {
               return question;
             })}
           </div>
-          <QuestionGroup/>
+          <QuestionHeader/>
           <ProgressBar/>
           <Arrow/>
         </>

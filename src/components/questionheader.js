@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { GlobalContext } from "../context/GlobalState";
 
-function QuestionGroup() {
+function QuestionHeader() {
   const { header, showGroup } = useContext(GlobalContext);
 
   return (
@@ -17,4 +17,4 @@ function QuestionGroup() {
 //   header:PropTypes.string.isRequired
 // };
 
-export default QuestionGroup;
+export default QuestionHeader;

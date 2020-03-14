@@ -18,7 +18,6 @@ const initialState = {
   questionHidden: "question-hidden",
   questionsArray: questionsArray,
   direction: "increment",
-  test: "testing",
   completion: 0
 };
 
@@ -30,19 +29,6 @@ export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   // Actions
-  function deleteTransaction(id) {
-    dispatch({
-      type: "DELETE_TRANSACTION",
-      payload: id
-    });
-  }
-
-  function addTransaction(transaction) {
-    dispatch({
-      type: "ADD_TRANSACTION",
-      payload: transaction
-    });
-  }
 
   function handleNextQuestion() {
     if (state.currentQuestion < state.questionsArray.length - 1) {
@@ -72,7 +58,6 @@ export const GlobalProvider = ({ children }) => {
   }
 
   function handleHeader(header) {
-    // if(!showGroup){
     dispatch({
       type: "HEADER",
       payload: { showGroup: true, header: header }
@@ -106,7 +91,7 @@ export const GlobalProvider = ({ children }) => {
   const handleQuestion = () => {
     return questionsArray.map(questionComponent => {
       if (state.direction === "increment") {
-        // if forward transvering through the question lists
+        // if forward transvering through the question list
         if (Number(questionComponent.key) < state.currentQuestion) {
           //if current question  is leaving, then it is assigned css class questionEquestionComponentit
           questionComponent = React.cloneElement(questionComponent, {
@@ -174,9 +159,6 @@ export const GlobalProvider = ({ children }) => {
   return (
     <GlobalContext.Provider
       value={{
-        transactions: state.transactions,
-        deleteTransaction,
-        addTransaction,
         handleNextQuestion,
         handlePreviousQuestion,
         handleHeader,
