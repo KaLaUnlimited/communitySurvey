@@ -7,7 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
-  background-image: url("annie-spratt-0ZPSX_mQ3xI-unsplash.jpg");
+ 
   background-size: cover;
   height: -webkit-fill-available;
   width: 100%;
@@ -22,6 +22,9 @@ body {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-rows: 26.1% 18% 27% 22% 13.1%;
+}
+#id{
+  background-image: url('annie-spratt-0ZPSX_mQ3xI-unsplash.jpg');
 }
 .question-container {
   // background-color: red;

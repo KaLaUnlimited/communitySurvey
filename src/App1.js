@@ -1,27 +1,24 @@
-import React, { useReducer } from 'react'
-import Question from "./components/Question/question";
+import React from "react";
+// import Question from "./components/Question/question";
 import questionsArray from "./surveyQuestions";
 import Start from "./components/start";
 import Arrow from "./components/Arrow/arrows";
 import QuestionGroup from "./components/questiongroup";
 import ProgressBar from "./components/ProgressBar/progressBar";
-import './App.css'
+import "./App.css";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       date: new Date(),
-      increment: 0,
+      increment: false,
+      direction: "",
       currentQuestion: 0,
       startPage: true,
       showGroup: false,
       rolldownClass: false,
       header: " ",
-      // currentNoAnimation: "current-question-noanimate",
-      // currentAnimation: "current-question-animate",
-      // nextAnimation: "next-question-animate",
-      // nextNoAnimation: "current-question-noanimate",
       questionExit: "question-exit",
       questionEntry: "question-entry",
       questionHidden: "question-hidden"
@@ -29,26 +26,18 @@ class App extends React.Component {
   }
   handleNextQuestion = cb => {
     if (this.state.currentQuestion < questionsArray.length - 1) {
-      this.setState(
-        {
-          increment: true,
-          currentQuestion: this.state.currentQuestion + 1,
-          rolldownClass: true
-        },
-        this.handleReset
-      );
+      this.setState({
+        direction: "increment",
+        currentQuestion: this.state.currentQuestion + 1,
+        rolldownClass: true
+      });
     }
-  };
-  handleReset = () => {
-    this.setState({
-      rolldownClass: false
-    });
   };
 
   handlePreviousQuestion = () => {
     if (this.state.currentQuestion > 0) {
       this.setState({
-        increment: false,
+        direction: "decrement",
         currentQuestion: this.state.currentQuestion - 1
       });
     }
@@ -57,51 +46,98 @@ class App extends React.Component {
   handleStartSurvey = () => {
     this.setState({
       startPage: false,
-      increment: true
+      direction: "increment"
     });
   };
 
   handleHeader = header => {
     console.log("handleHeader", header);
-    // if(!this.state.showGroup){
-      this.setState({
-        showGroup: true,
-        header: header
-      });
-    // }
-    // else{
-    //   this.setState({
-    //     showGroup:false,
-
-    //   })
-    // }
-    
-  };
-  
-  closeHandleHeader = () =>{
     this.setState({
-      showGroup:false
-    })
-  }
+      showGroup: true,
+      header: header
+    });
+  };
+
+  closeHandleHeader = () => {
+    this.setState({
+      showGroup: false
+    });
+  };
 
   handleCompletion = () => {
-    const answer = Math.floor((this.state.currentQuestion / questionsArray.length) * 100);
+    const answer = Math.floor(
+      (this.state.currentQuestion / questionsArray.length) * 100
+    );
 
     return answer;
   };
   handleQuestion = () => {
     return questionsArray.map(x => {
-      if (this.state.increment) {
-        console.log("increment");
-        if (this.state.currentQuestion > x.key) {
-          console.log("81>>>", x.props.className)
+      // const { currentQuestion } = this.state;
+      // switch (currentQuestion) {
+      //   case currentQuestion > Number(x.key):
+
+      //         console.log("81>>>", x.props.className);
+      //         x = React.cloneElement(x, {
+      //           ...x,
+      //           className: `${this.state.questionExit} `,
+      //           nextQuestion: this.handleNextQuestion,
+      //           onAnimationStart: () => {
+      //             console.log(
+      //               x.props.id,
+      //               x.props.class,
+      //               "match?>>>",
+      //               x.props.class.match(/question-group/gi)
+      //             );
+      //             if (x.props.className.match(/question-group/gi)) {
+      //               console.log("87 question class>>>", x.props.className);
+      //               this.handleHeader(x.props.question);
+      //             }
+      //           }
+      //         });
+      //         console.log(x.key, "Previous Question", x.props.question);
+
+      //         return x;
+
+      //   case 4:
+      //     alert( 'Exactly!' );
+      //     break;
+      //   case 5:
+      //     alert( 'Too large' );
+      //     break;
+      //   default:
+      //     alert( "I don't know such values" );
+      // }
+      console.log(
+        "++++ >>currentquestion:",
+        this.state.currentQuestion,
+        " key:",
+        x.key
+      );
+
+      if (this.state.direction === "increment") {
+        console.log(" direction: increment");
+        //anything a
+        if (this.state.currentQuestion > Number(x.key)) {
+          // console.log(
+          //   "++++ >>currentquestion:",
+          //   this.state.currentQuestion,
+          //   " key:",
+          //   x.key
+          // );
+          console.log("81>>>", x.props.className);
           x = React.cloneElement(x, {
             ...x,
-            class: `${ this.state.questionExit} `,
+            class: `${this.state.questionExit} `,
             nextQuestion: this.handleNextQuestion,
             onAnimationStart: () => {
-              console.log(x.props.id,x.props.class,"match?>>>", x.props.class.match(/question-group/ig))
-              if (x.props.className.match(/question-group/ig)) {
+              console.log(
+                x.props.id,
+                x.props.class,
+                "match?>>>",
+                x.props.class.match(/question-group/gi)
+              );
+              if (x.props.className.match(/question-group/gi)) {
                 console.log("87 question class>>>", x.props.className);
                 this.handleHeader(x.props.question);
               }
@@ -111,13 +147,13 @@ class App extends React.Component {
 
           return x;
         }
-        if (this.state.currentQuestion == x.key) {
+        if (this.state.currentQuestion === Number(x.key)) {
           x = React.cloneElement(x, {
             ...x,
             class: this.state.questionEntry,
             nextQuestion: this.handleNextQuestion,
-            onAnimationStart: ()=> {
-              if (x.props.className.match(/question-group/ig)) {
+            onAnimationStart: () => {
+              if (x.props.class.match(/question-group/gi)) {
                 console.log("120 question class>>>", x.props.className);
                 this.closeHandleHeader();
               }
@@ -125,7 +161,7 @@ class App extends React.Component {
           });
 
           console.log("header?", x.id);
-          if (x.props.id == "header-trigger") {
+          if (x.props.id === "header-trigger") {
             // this.handleHeader()
             // this.setState({
             //   showGroup:true
@@ -139,30 +175,37 @@ class App extends React.Component {
           console.log(x.key, "Current Question>>>", x.props.id);
           return x;
         }
-        if (this.state.currentQuestion < x.key) {
+        if (this.state.currentQuestion < Number(x.key)) {
           x = React.cloneElement(x, {
             ...x,
-            class: this.state.questionEntry,
+            class: "question-hidden",
+            // class: this.state.questionEntry,
             nextQuestion: this.handleNextQuestion
           });
           // x.class=this.state.questionHidden
-          // return x
+          return x;
           // console.log(x.key, "Hidden Question", x.props.class);
         }
       } else {
         console.log("decrement>>>", this.state.currentQuestion);
-        if (this.state.currentQuestion < x.key) {
-          x = React.cloneElement(x, { ...x, class: "reverse-question-exit" });
+        if (this.state.currentQuestion < Number(x.key)) {
+          x = React.cloneElement(x, {
+            ...x,
+            class: "reverse-question-exit"
+          });
           // console.log(">>>>double class?",x.props)
           // console.log(x.key, "Previous Question", x.props.class,"cuurent qu", this.state.currentQuestion);
           return x;
-        } else if (this.state.currentQuestion == x.key) {
+        } else if (this.state.currentQuestion === Number(x.key)) {
           // console.log(x.key, "Current Question", x.props.class);
-          x = React.cloneElement(x, { ...x, class: "reverse-question-entry" });
+          x = React.cloneElement(x, {
+            ...x,
+            class: "reverse-question-entry"
+          });
 
           // console.log("x>>>??",x.props.class )
           return x;
-        } else if (this.state.currentQuestion > x.key) {
+        } else if (this.state.currentQuestion > Number(x.key)) {
           // console.log(x.key, "Next Question", x.props.class);
           x = React.cloneElement(x, {
             ...x,
