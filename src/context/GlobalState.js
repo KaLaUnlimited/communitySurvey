@@ -1,6 +1,5 @@
 import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
-import Question from "../components/Question/question";
 
 import questionsArray from "../surveyQuestions";
 
@@ -89,7 +88,7 @@ export const GlobalProvider = ({ children }) => {
   }
 
   const handleQuestion = () => {
-    return questionsArray.map(questionComponent => {
+    return questionsArray.map((questionComponent) => {
       if (state.direction === "increment") {
         // if forward transvering through the question list
         if (Number(questionComponent.key) < state.currentQuestion) {
@@ -97,7 +96,7 @@ export const GlobalProvider = ({ children }) => {
           questionComponent = React.cloneElement(questionComponent, {
             ...questionComponent,
             class: `${state.questionExit} `,
-            nextQuestion: handleNextQuestion,
+            // nextQuestion: handleNextQuestion,
             onAnimationStart: () => {
               if (questionComponent.props.className.match(/question-group/gi)) {
                 handleHeader(questionComponent.props.question);
@@ -112,7 +111,7 @@ export const GlobalProvider = ({ children }) => {
           questionComponent = React.cloneElement(questionComponent, {
             ...questionComponent,
             class: state.questionEntry,
-            nextQuestion: handleNextQuestion,
+            // nextQuestion: handleNextQuestion,
             onAnimationStart: () => {
               if (questionComponent.props.className.match(/question-group/gi)) {
                 handleCloseHeader();
@@ -125,8 +124,7 @@ export const GlobalProvider = ({ children }) => {
           //if question is before currentQuestion then it is assigned css class questionEntry
           questionComponent = React.cloneElement(questionComponent, {
             ...questionComponent,
-            class: state.questionHidden,
-            nextQuestion: handleNextQuestion
+            class: state.questionHidden
           });
           return questionComponent;
         }
@@ -140,17 +138,18 @@ export const GlobalProvider = ({ children }) => {
             class: "reverse-question-exit"
           });
           return questionComponent;
-        } else if (state.currentQuestion === Number(questionComponent.key)) {
+        }  
+        if (state.currentQuestion === Number(questionComponent.key)) {
           questionComponent = React.cloneElement(questionComponent, {
             ...questionComponent,
             class: "reverse-question-entry"
           });
           return questionComponent;
-        } else if (Number(questionComponent.key) < state.currentQuestion) {
+        } 
+         if (Number(questionComponent.key) < state.currentQuestion) {
           questionComponent = React.cloneElement(questionComponent, {
             ...questionComponent,
-            class: "reverse-question-exit",
-            nextQuestion: handleNextQuestion
+            class: state.questionHidden,
           });
         }
       }

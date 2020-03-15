@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalState";
 import "./arrow.scss";
-import PropTypes from "prop-types";
+
 
 function Arrows(props) {
   const { handleNextQuestion, handlePreviousQuestion } = useContext(
