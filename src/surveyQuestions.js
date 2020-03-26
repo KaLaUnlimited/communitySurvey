@@ -4,6 +4,7 @@ import YesNo from "./components/Yes_NoBox/yes_nobox";
 import MultiChoice from "./components/MultiChoice/multichoice";
 import FillBlank from "./components/FillBlank/fillblank";
 import Rate from "./components/Rate/rate";
+import PressEnter from "./components/PressEnter/pressEnter";
 
 const cityChar = [
   " Down-to-earth",
@@ -361,6 +362,7 @@ const questionsArray = [
   <Question
     id={0}
     key={0}
+    continue={<PressEnter/>}
     className="question-entry question-group"
     question="1 &#8594; Let's start by finding how involved you are within your community"
   />,
@@ -382,6 +384,7 @@ const questionsArray = [
   <Question
     id="header-trigger-2"
     key={3}
+    continue={<PressEnter/>}
     className="question-hidden  question-group"
     question="2 &#8594;  Nice! So let's hear your thoughts about your city... "
   />,
@@ -440,6 +443,7 @@ const questionsArray = [
   <Question
     id={11}
     key={11}
+    continue={<PressEnter/>}
     className="question-hidden  question-group"
     question="3. &#8594; You're doing great; we're about halfway through now. "
   />,

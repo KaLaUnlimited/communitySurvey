@@ -12,7 +12,7 @@ function Start(props) {
       <div id="business-title">The B-Line</div>
       <div id="tag-line">Buidling, Growing, Securing, Flourishing</div>
       <div id="enter-container">
-        <button onClick={handleStartSurvey}>Start</button>
+        <button className="continue-button" onClick={handleStartSurvey}>Start</button>
         <div id="press-enter">
           press
           <span>

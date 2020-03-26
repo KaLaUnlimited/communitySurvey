@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./question.scss";
 // import PropTypes from "prop-types";
 import { GlobalContext } from "../../context/GlobalState";
-import PressEnter from '../PressEnter/pressEnter'
+import PressEnter from '../PressEnter/pressEnter';
 
 function Question(props) {
   const { handleNextQuestion } = useContext(GlobalContext);
@@ -16,9 +16,10 @@ function Question(props) {
    
       {props.question}
       {props.QuestionType}
+      {props.continue}
       <br />
-      <button onClick={handleNextQuestion}>Continue </button>
-      <PressEnter/>
+      {/* <button onClick={handleNextQuestion}>Continue </button> */}
+      {/* <PressEnter/> */}
     
     </div>
   );

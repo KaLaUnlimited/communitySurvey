@@ -1,0 +1,63 @@
+.custom-button{
+    width: 8.75rem;
+    height: 2.75rem;
+    background-color: rgba(195, 198, 188, 0.9);
+    opacity: .8;
+    color:black;
+    border-radius: 7px;
+    border-color:  rgb(160, 163, 154);
+    border-style: solid;
+    font-size: 1.5em;
+    font-weight: 100; 
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.custom-button:before{
+    content: "Y";
+    margin-right:25% ;
+    border-color:  rgb(160, 163, 154);
+    border-style: solid;
+    font-size: .5em;
+    height: 75%;
+    border-width: 2px;
+    width: 10%;
+}
+
+.custom-button:before:hover{
+    content:"KEY Y";
+    width:50%;
+}
+.custom-button:hover{
+    cursor: pointer;
+    background-color: rgba(128, 130, 123, 1);
+}
+
+.custom-button-clicked{
+    animation: blinkingText .2s 5;
+}
+// .init-container{
+//     margin-right:25% ;
+//     border-color:  rgb(160, 163, 154);
+//     border-style: solid;
+//     font-size: .5em;
+//     height: 75%;
+//     border-width: 2px;
+//     width: 10%;
+// }
+
+.init-container:before:hover{
+    content: "KEY";
+    width: 20%;
+}
+
+@keyframes blinkingText{
+    0%{     color: #000;    }
+    49%{    color: #000; }
+    60%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: #000;    }
+}

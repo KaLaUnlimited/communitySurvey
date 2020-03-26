@@ -20,7 +20,7 @@ body {
   align-items: stretch;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 26.1% 18% 27% 22% 13.1%;
 }
 #id{
@@ -84,7 +84,9 @@ body {
 #press-enter {
   display: flex;
   flex-flow: row;
-  justify-content: space-between;
+  align-items: center;
+  justify-content:space-between;
+  width:34%;
 }
 // #start-container{
 //   margin:auto;
@@ -96,7 +98,7 @@ code {
     monospace;
 }
 
-button {
+.continue-button {
   position: relative;
   font-family: inherit;
   font-weight: 900;
@@ -119,7 +121,7 @@ button {
   border-radius: 4px;
 }
 
-button:hover {
+.continue-button:hover {
   background-color: rgb(243, 213, 114);
 }
 
