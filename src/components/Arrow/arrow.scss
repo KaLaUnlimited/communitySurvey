@@ -1,18 +1,19 @@
 .question-controllers {
-    grid-column-start: 3;
-    grid-column-end: 4;
-    background-color: #f3cd59;
-    grid-row-start: 5;
-    height: 40%;
-    line-height: 248%;
-    display: flex;
-    border-radius: 4px;
-    box-shadow: gray;
-    font-size: 14px;
-    width: 90%;
-    flex-flow: row;
-    justify-content: space-between;
-    padding-left: 10px;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  background-color: #f3cd59;
+  grid-row-start: 5;
+  height: 30%;
+  line-height: 248%;
+  display: flex;
+  border-radius: 4px;
+  box-shadow: gray;
+  font-size: 14px;
+  width: 40%;
+  flex-flow: row;
+  justify-content: space-between;
+  padding-left: 10px;
+  margin-left: 56%;
   }
   
   .question-controllers i {

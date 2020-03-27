@@ -12,7 +12,7 @@ function CustButton(props) {
 
   return (
     <button value={props.value} id={props.id} className={isClicked ?'custom-button-clicked': "custom-button"} onClick={(e)=>{setClicked(true)}} >
-     <span className="init-container">{props.initial}</span>
+     {/* <span className="init-container">{props.initial}</span> */}
      {props.label}
     </button>
   );

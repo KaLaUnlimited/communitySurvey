@@ -1,4 +1,46 @@
 .custom-button{
+    position: relative;
+    width: 8.75rem;
+    height: 2.75rem;
+    background-color: rgba(195, 198, 188, 0.9);
+    opacity: .8;
+    color: black;
+    border-radius: 7px;
+    border-color: #a0a39a;
+    border-style: solid;
+    font-size: 1.5em;
+    font-weight: 100;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.custom-button:before{
+    content: "Y";
+    position: absolute;
+    left: 4%;
+    border-color: #a0a39a;
+    border-style: solid;
+    font-size: .5em;
+    line-height: 165%;
+    border-width: 2px;
+    width: 20%;
+    background-color: #e6e8e3;
+}
+
+.custom-button:hover:before{
+    left: -17px;
+    content: "KEY Y";
+    width: 30%;
+}
+.custom-button:hover{
+    cursor: pointer;
+    background-color: rgba(128, 130, 123, 1);
+}
+
+.custom-button-clicked{
+    position: relative;
     width: 8.75rem;
     height: 2.75rem;
     background-color: rgba(195, 198, 188, 0.9);
@@ -11,43 +53,26 @@
     font-weight: 100; 
     display: flex;
     flex-flow: row;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     align-items: center;
+    animation: blinkingText .2s 4;
 }
-
-
-.custom-button:before{
-    content: "Y";
-    margin-right:25% ;
-    border-color:  rgb(160, 163, 154);
+.custom-button-clicked:before{
+    // content: "Y";
+    position: absolute;
+    left: 4%;
+    border-color: #a0a39a;
     border-style: solid;
     font-size: .5em;
-    height: 75%;
+    line-height: 165%;
     border-width: 2px;
-    width: 10%;
+    // width: 20%;
+    background-color: #e6e8e3;
+    left: -17px;
+    content: "KEY Y";
+    width: 30%;
+    animation: blinkingText .2s 4;
 }
-
-.custom-button:before:hover{
-    content:"KEY Y";
-    width:50%;
-}
-.custom-button:hover{
-    cursor: pointer;
-    background-color: rgba(128, 130, 123, 1);
-}
-
-.custom-button-clicked{
-    animation: blinkingText .2s 5;
-}
-// .init-container{
-//     margin-right:25% ;
-//     border-color:  rgb(160, 163, 154);
-//     border-style: solid;
-//     font-size: .5em;
-//     height: 75%;
-//     border-width: 2px;
-//     width: 10%;
-// }
 
 .init-container:before:hover{
     content: "KEY";
