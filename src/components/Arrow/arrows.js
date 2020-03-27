@@ -10,9 +10,9 @@ function Arrows(props) {
 
   return (
     <div className="question-controllers">
-      <div>
+      {/* <div>
         Developed by <strong>Kavodel Lasode </strong>
-      </div>
+      </div> */}
       <div id="arrows-container">
         <i
           id="up"

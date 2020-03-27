@@ -17,13 +17,13 @@
 }
 
 .custom-button:before{
-    content: "Y";
+    // content: "Y";
     position: absolute;
     left: 4%;
     border-color: #a0a39a;
     border-style: solid;
     font-size: .5em;
-    line-height: 165%;
+    line-height: 90%;
     border-width: 2px;
     width: 20%;
     background-color: #e6e8e3;
@@ -31,8 +31,11 @@
 
 .custom-button:hover:before{
     left: -17px;
-    content: "KEY Y";
-    width: 30%;
+    content: "✔";
+    width: 28%;
+    font-size: 1.5rem;
+    font-weight: 100;
+    height: 50%;
 }
 .custom-button:hover{
     cursor: pointer;
@@ -58,25 +61,22 @@
     animation: blinkingText .2s 4;
 }
 .custom-button-clicked:before{
-    // content: "Y";
     position: absolute;
     left: 4%;
     border-color: #a0a39a;
     border-style: solid;
-    font-size: .5em;
-    line-height: 165%;
+    font-size: 1.5rem;
+    font-weight: 100;
+    height: 50%;
+    line-height: 90%;
     border-width: 2px;
-    // width: 20%;
     background-color: #e6e8e3;
     left: -17px;
-    content: "KEY Y";
+    content: "✔";
     width: 30%;
+    color: white;
+    background-color: rgba(128, 130, 123, 1);
     animation: blinkingText .2s 4;
-}
-
-.init-container:before:hover{
-    content: "KEY";
-    width: 20%;
 }
 
 @keyframes blinkingText{

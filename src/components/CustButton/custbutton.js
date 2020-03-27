@@ -5,15 +5,37 @@ import { GlobalContext } from "../../context/GlobalState";
 
 function CustButton(props) {
   const { handleNextQuestion, recordAnswer } = useContext(GlobalContext);
-  const styles = {
+  const styles = {};
+  const [isClicked, setClicked] = useState(false);
+  const toggleClass = cb => {
+    if (!isClicked) {
+      setClicked(true);
+    } else {
+      setClicked(false);
+    }
+  };
+  const proceed = () => {
+    setTimeout(handleNextQuestion, 1000);
+  };
+// const toggleTF = (answerTF) => {
 
-  }
- const [isClicked, setClicked] = useState(false)
-
+//   setAnswerTF = answerTF;
+// }
   return (
-    <button value={props.value} id={props.id} className={isClicked ?'custom-button-clicked': "custom-button"} onClick={(e)=>{setClicked(true)}} >
-     {/* <span className="init-container">{props.initial}</span> */}
-     {props.label}
+    <button
+      value={props.value}
+      // disabled={isClicked}
+      id={props.id}
+      className={isClicked ? "custom-button-clicked" : "custom-button"}
+      onClick={e => {
+        toggleClass();
+        console.log(e.target, props.question);
+        // proceed();
+        //toggleTF(e.target.value)
+      }}
+    >
+      {/* <span className="init-container">{props.initial}</span> */}
+      {props.label}
     </button>
   );
 }

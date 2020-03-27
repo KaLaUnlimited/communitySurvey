@@ -370,7 +370,7 @@ const questionsArray = [
     id={1}
     key={1}
     className="question-hidden"
-    QuestionType={<YesNo />}
+    QuestionType={<YesNo question="Q.1"/>}
     question="a. Have you ever thought about investing in a business in your area?"
   />,
 

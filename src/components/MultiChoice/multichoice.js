@@ -1,14 +1,15 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalState";
 import "./multichoice.scss";
+import CustButton from '../CustButton/custbutton';
 
 function MultiChoice(props) {
     const char = props.char.map((char)=>{
-        return <button>{char}</button>
+        return <CustButton label={char}/>
     })
 
   return (
-    <div className="yes-no-container">
+    <div className="multi-choice-container">
         {char ? char: "...waiting"}
   
        </div>
