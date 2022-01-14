@@ -2793,6 +2793,11 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
+commander@2.15.1:
+  version "2.15.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.15.1.tgz#df46e867d0fc2aec66a34662b406a9ccafff5b0f"
+  integrity sha512-VlfT9F3V0v+jr4yxPc5gg9s62/fIVWsd2Bk2iD435um1NlGMYdVCq+MjcXnhYq2icNOizHr1kK+5TI6H0Hy0ag==
+
 commander@2.17.x:
   version "2.17.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
@@ -3331,7 +3336,7 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.8, debug@^2.6.
   dependencies:
     ms "2.0.0"
 
-debug@^3.0.0, debug@^3.1.1, debug@^3.2.5, debug@^3.2.6:
+debug@^3.1.1, debug@^3.2.5, debug@^3.2.6:
   version "3.2.6"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
   integrity sha512-mel+jf7nrtEl5Pn1Qx46zARXKDpBbvzezse7p7LqINmdoIk8PYP5SySaxEmYv6TZ0JyEKA1hsCId6DIhgITtWQ==
@@ -3654,6 +3659,11 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
+
+ejs@2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.6.1.tgz#498ec0d495655abc6f23cd61868d926464071aa0"
+  integrity sha512-0xy4A/twfrRCnkhfk8ErDi5DqdAsAqeGxht4xkCUrsvhhbQNs7E+4jV0CN7+NKIY0aHE72+XvqtBIXzD31ZbXQ==
 
 electron-to-chromium@^1.3.306:
   version "1.3.331"
@@ -4096,6 +4106,17 @@ expect@^24.9.0:
     jest-message-util "^24.9.0"
     jest-regex-util "^24.9.0"
 
+express-generator@^4.16.1:
+  version "4.16.1"
+  resolved "https://registry.yarnpkg.com/express-generator/-/express-generator-4.16.1.tgz#9b7989b3cdffbea714d549db57fe53c21cb75d70"
+  integrity sha512-tWYEx5Y/Llos2qC6yAETmdqEMEPqNUzJ8btGcSZ2zSr8RYOalzffhvh9zx5OQTctvOgJ9kKYxyvFGAIuUuF/wA==
+  dependencies:
+    commander "2.15.1"
+    ejs "2.6.1"
+    minimatch "3.0.4"
+    mkdirp "0.5.1"
+    sorted-object "2.0.1"
+
 express@^4.17.1:
   version "4.17.1"
   resolved "https://registry.yarnpkg.com/express/-/express-4.17.1.tgz#4491fc38605cf51f8629d39c2b5d026f98a4c134"
@@ -4387,11 +4408,9 @@ flush-write-stream@^1.0.0:
     readable-stream "^2.3.6"
 
 follow-redirects@^1.0.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.9.0.tgz#8d5bcdc65b7108fe1508649c79c12d732dcedb4f"
-  integrity sha512-CRcPzsSIbXyVDl0QI01muNDu69S8trU4jArW9LpOt2WtC6LyUJetcIrmfHsRBx7/Jb6GHJUiuqyYxPooFfNt6A==
-  dependencies:
-    debug "^3.0.0"
+  version "1.14.7"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.7.tgz#2004c02eb9436eee9a21446a6477debf17e81685"
+  integrity sha512-+hbxoLbFMbRKDwohX8GkTataGqO6Jb7jGwpAlwgy2bIz25XtRm7KEzJM76R1WiNT5SwZkX4Y75SwBolkpmE7iQ==
 
 for-in@^0.1.3:
   version "0.1.8"
@@ -9418,6 +9437,11 @@ sort-keys@^1.0.0:
   integrity sha1-RBttTTRnmPG05J6JIK37oOVD+a0=
   dependencies:
     is-plain-obj "^1.0.0"
+
+sorted-object@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/sorted-object/-/sorted-object-2.0.1.tgz#7d631f4bd3a798a24af1dffcfbfe83337a5df5fc"
+  integrity sha1-fWMfS9OnmKJK8d/8+/6DM3pd9fw=
 
 source-list-map@^2.0.0:
   version "2.0.1"
